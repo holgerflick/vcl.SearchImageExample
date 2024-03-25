@@ -14,21 +14,26 @@ uses
 type
   TMyWebBridge = class;
 
+  TWebAppLoaderMessageEvent = procedure( AMessage: String ) of object;
+
   TWebAppLoader = class
   private
     FBrowserControl: TTMSFNCEdgeWebBrowser;
     FHostName: String;
     FDirectory: String;
     FBridge: TMyWebBridge;
+    FOnMessage: TWebAppLoaderMessageEvent;
 
     procedure OnBrowserInitialized(Sender: TObject);
-  protected
     procedure DoMessage(const AMessage: string);
   public
     constructor Create(
       ABrowserControl: TTMSFNCEdgeWebBrowser;
       AHostName, ADirectory: String );
     destructor Destroy; override;
+
+    property OnMessage: TWebAppLoaderMessageEvent
+      read FOnMessage write FOnMessage;
   end;
 
   TMyWebBridgeMessageEvent = procedure(const AMessage: string) of object;
@@ -80,9 +85,13 @@ begin
   inherited;
 end;
 
+
 procedure TWebAppLoader.DoMessage(const AMessage: string);
 begin
-  TTMSFNCUtils.Log(AMessage);
+  if Assigned(FOnMessage) then
+  begin
+    FOnMessage(AMessage);
+  end;
 end;
 
 procedure TWebAppLoader.OnBrowserInitialized(Sender: TObject);

@@ -19,6 +19,8 @@ type
     { Private declarations }
     FWebAppLoader: TWebAppLoader;
 
+    procedure OnMessage(AMessage: String);
+
   public
     { Public declarations }
   end;
@@ -44,11 +46,17 @@ begin
 
   FWebAppLoader := TWebAppLoader.Create(
     self.Browser, 'images', LDirectory );
+  FWebAppLoader.OnMessage := self.OnMessage;
 end;
 
 procedure TFrmSearchImage.FormDestroy(Sender: TObject);
 begin
   FWebAppLoader.Free;
+end;
+
+procedure TFrmSearchImage.OnMessage(AMessage: String);
+begin
+  ShowMessage(AMessage);
 end;
 
 end.
