@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, VCL.TMSFNCTypes, VCL.TMSFNCUtils,
-  VCL.TMSFNCGraphics, VCL.TMSFNCGraphicsTypes, VCL.TMSFNCCloudImage,
+  VCL.TMSFNCGraphics, VCL.TMSFNCGraphicsTypes,
   Vcl.ExtCtrls, VCL.TMSFNCCustomControl, VCL.TMSFNCWebBrowser,
   VCL.TMSFNCEdgeWebBrowser, UWebAppLoader;
 
@@ -21,6 +21,8 @@ type
 
     procedure OnMessage(AMessage: String);
 
+    procedure SelectImage( AUrl: String );
+
   public
     { Public declarations }
   end;
@@ -30,7 +32,8 @@ var
 
 implementation
 uses
-  IOUtils
+    IOUtils
+  , UFrmSelection
   ;
 
 {$R *.dfm}
@@ -56,7 +59,12 @@ end;
 
 procedure TFrmSearchImage.OnMessage(AMessage: String);
 begin
-  ShowMessage(AMessage);
+  SelectImage(AMessage);
+end;
+
+procedure TFrmSearchImage.SelectImage(AUrl: String);
+begin
+  TFrmSelection.ViewImage(AUrl);
 end;
 
 end.
