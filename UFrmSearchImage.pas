@@ -35,6 +35,7 @@ uses
 
 procedure TFrmSearchImage.FormCreate(Sender: TObject);
 begin
+  ReportMemoryLeaksOnShutdown := True;
   var LDirectory :=
     TPath.Combine(
       TPath.GetAppPath,
