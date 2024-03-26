@@ -6,12 +6,14 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, hyiedefs, hyieutils, iexBitmaps,
   iesettings, iexLayers, iexRulers, iexToolbars, iexUserInteractions, imageenio,
-  imageenproc, iexProcEffects, ieview, imageenview, Vcl.StdCtrls;
+  imageenproc, iexProcEffects, ieview, imageenview, Vcl.StdCtrls, Vcl.ToolWin,
+  Vcl.ComCtrls;
 
 type
   TFrmSelection = class(TForm)
     View: TImageEnView;
     Button1: TButton;
+    ImageEnViewToolbar1: TImageEnViewToolbar;
     procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
