@@ -3,7 +3,8 @@
 uses
   Vcl.Forms,
   UFrmSearchImage in 'UFrmSearchImage.pas' {FrmSearchImage},
-  UWebAppLoader in 'UWebAppLoader.pas';
+  UWebAppLoader in 'UWebAppLoader.pas',
+  UFrmSelection in 'UFrmSelection.pas' {FrmSelection};
 
 {$R *.res}
 
