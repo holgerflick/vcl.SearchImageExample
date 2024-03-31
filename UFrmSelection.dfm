@@ -3,8 +3,8 @@ object FrmSelection: TFrmSelection
   Top = 0
   BorderStyle = bsSizeToolWin
   Caption = 'Selected Image'
-  ClientHeight = 486
-  ClientWidth = 556
+  ClientHeight = 633
+  ClientWidth = 825
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -12,23 +12,25 @@ object FrmSelection: TFrmSelection
   Font.Name = 'Segoe UI'
   Font.Style = []
   DesignSize = (
-    556
-    486)
+    825
+    633)
   TextHeight = 20
   object View: TImageEnView
     Left = 8
     Top = 8
-    Width = 540
-    Height = 417
+    Width = 809
+    Height = 577
     Anchors = [akLeft, akTop, akRight, akBottom]
     TabOrder = 0
     AutoStretch = True
     AutoShrink = True
     ShowRulers = [rdHorizontal, rdVertical]
+    ExplicitWidth = 540
+    ExplicitHeight = 430
   end
   object Button1: TButton
-    Left = 427
-    Top = 444
+    Left = 696
+    Top = 591
     Width = 121
     Height = 34
     Anchors = [akRight, akBottom]
@@ -36,18 +38,18 @@ object FrmSelection: TFrmSelection
     Caption = 'Close'
     TabOrder = 1
     OnClick = Button1Click
+    ExplicitLeft = 427
+    ExplicitTop = 444
   end
   object ImageEnViewToolbar1: TImageEnViewToolbar
     Left = 0
     Top = 0
-    Width = 556
+    Width = 825
     Height = 29
     ButtonHeight = 30
     ButtonWidth = 31
     Caption = 'ImageEnViewToolbar1'
     TabOrder = 2
-    ExplicitLeft = 208
-    ExplicitTop = 464
-    ExplicitWidth = 150
+    ExplicitWidth = 556
   end
 end
